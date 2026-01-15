@@ -1,19 +1,19 @@
 
 #!/bin/bash
 
+#Each server should have its own folder with its own mc-server.sh and docker-compose.yml
 
-#Run these
+
+#Run these in server folder directory to set up permissions
 #chmod +x mc-server.sh
 #chmod +x docker-compose.yml
-
-#This file just needs to be in the same directory as docker-compose.yml
 
 
 SERVER_DIR="$(pwd)"
 SERVER_NAME="$(basename "$SERVER_DIR")"
 
 CONTAINER_NAME=$(grep -E '^\s*container_name:' docker-compose.yml | awk '{print $2}')
-BACKUP_DIR="$HOME/minecraft-self-hosted/$SERVER_NAME"
+BACKUP_DIR="$HOME/minecraft-self-hosted/backups/$SERVER_NAME"
 
 
 
